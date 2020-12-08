@@ -5,7 +5,7 @@ with open('day2/input.txt', 'r') as f:
         raw_data.append(line.strip())
 
 # Part 1
-def is_valid(lower_bound, upper_bound, letter, password):
+def is_valid_pt1(lower_bound, upper_bound, letter, password):
     return ((password.count(letter) >= lower_bound) and 
             (password.count(letter) <= upper_bound))
 
@@ -26,13 +26,13 @@ for line in raw_data:
     password = line_split[2]
 
     # Test validity
-    valid_password_counter += is_valid(lower_bound, upper_bound, letter, password)
+    valid_password_counter += is_valid_pt1(lower_bound, upper_bound, letter, password)
 
 print(valid_password_counter)
 
 
 # Part 2
-def is_valid(lower_index, upper_index, letter, password):
+def is_valid_pt2(lower_index, upper_index, letter, password):
     return ((password[lower_index] == letter) ^
             (password[upper_index] == letter))
 
@@ -53,6 +53,6 @@ for line in raw_data:
     password = line_split[2]
 
     # Test validity
-    valid_password_counter += is_valid(lower_index, upper_index, letter, password)
+    valid_password_counter += is_valid_pt2(lower_index, upper_index, letter, password)
 
 print(valid_password_counter)
