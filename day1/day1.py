@@ -4,21 +4,50 @@ with open('day1/input.txt', 'r') as f:
     for line in f:
         nums.append(int(line.strip()))
 
+nums = sorted(nums)
+
+def binary_search(nums, index, sum_to = 2020):
+    while True:
+        if len(nums) < 2:
+            return index, None  # this number has no complement
+        else:
+            midpoint_index = (len(nums) - index) // 2
+            print(midpoint_index)
+            midpoint_value = nums[midpoint_index]
+            print(midpoint_value)
+            if index + midpoint_value == sum_to:
+                return index, midpoint_value
+            elif index + midpoint_value < sum_to:
+                nums = nums[:midpoint_index]
+            else:
+                nums = nums[midpoint_index:]
+
+def binary_search(arr, low_index, high_index, num, sum_to): 
+    if high_index >= low_index:
+        mid = (high_index + low_index) // 2
+
+        if num + arr[mid] == sum_to:
+            return mid
+        elif num + arr[mid] > sum_to:
+            return binary_search(arr, low_index, mid - 1, num, sum_to) 
+        else:
+            return binary_search(arr, mid + 1, high_index, num, sum_to) 
+    else: 
+        # Element is not present in the array
+        return None
+
 # Part 1
-# This is terribly inefficient
-# TO DO: use a better algo
 for i in range(0, len(nums)):
-    for j in range(i, len(nums)):
-        if nums[i] + nums[j] == 2020:
-            print(nums[i] * nums[j])
-            break
+    complement = binary_search(nums, i + 1, len(nums), nums[i], sum_to=2020)
+    if complement:
+        print(nums[i] * nums[complement])
+        break
+
 
 # Part 2
-# This is terribly inefficient
-# TO DO: use a better algo
 for i in range(0, len(nums)):
     for j in range(i, len(nums)):
-        for k in range(j, len(nums)):
-            if nums[i] + nums[j] == 2020:
-                print(nums[i] * nums[j] * nums[k])
-                break
+        complement = binary_search(nums, i, len(nums), nums[i] + nums[j], sum_to=2020)
+        if complement:
+            print(nums[i] * nums[j] * nums[complement])
+            break
