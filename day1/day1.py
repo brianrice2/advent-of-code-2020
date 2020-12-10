@@ -6,22 +6,6 @@ with open('day1/input.txt', 'r') as f:
 
 nums = sorted(nums)
 
-def binary_search(nums, index, sum_to = 2020):
-    while True:
-        if len(nums) < 2:
-            return index, None  # this number has no complement
-        else:
-            midpoint_index = (len(nums) - index) // 2
-            print(midpoint_index)
-            midpoint_value = nums[midpoint_index]
-            print(midpoint_value)
-            if index + midpoint_value == sum_to:
-                return index, midpoint_value
-            elif index + midpoint_value < sum_to:
-                nums = nums[:midpoint_index]
-            else:
-                nums = nums[midpoint_index:]
-
 def binary_search(arr, low_index, high_index, num, sum_to): 
     if high_index >= low_index:
         mid = (high_index + low_index) // 2
