@@ -2,7 +2,7 @@ import re
 from copy import deepcopy
 
 # Load input data
-with open('day8/input.txt', 'r') as f:
+with open('day08/input.txt', 'r') as f:
     instructions = f.read().split('\n')
 num_instructions = len(instructions)
 

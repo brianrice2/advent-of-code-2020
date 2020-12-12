@@ -2,7 +2,7 @@ import re
 from collections import Counter
 
 # Load input data
-with open('day6/input.txt', 'r') as f:
+with open('day06/input.txt', 'r') as f:
     responses = f.read()
 responses = responses.split('\n\n')
 

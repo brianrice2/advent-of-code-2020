@@ -1,6 +1,6 @@
 # Load input data
 nums = []
-with open('day1/input.txt', 'r') as f:
+with open('day01/input.txt', 'r') as f:
     for line in f:
         nums.append(int(line.strip()))
 

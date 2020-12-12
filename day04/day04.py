@@ -1,7 +1,7 @@
 import re
 
 # Load input data
-with open('day4/input.txt', 'r') as f:
+with open('day04/input.txt', 'r') as f:
     passports = f.read()
 
 # Split into separate passports using empty line delimiter

@@ -1,5 +1,5 @@
 # Load input data
-with open('day5/input.txt', 'r') as f:
+with open('day05/input.txt', 'r') as f:
     partitions = f.read()
 
 NROWS = 128

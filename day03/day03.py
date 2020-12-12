@@ -1,6 +1,6 @@
 # Load input data
 raw_data = []
-with open('day3/input.txt', 'r') as f:
+with open('day03/input.txt', 'r') as f:
     for line in f:
         raw_data.append(line.strip())
 
