@@ -4,14 +4,6 @@ import math
 with open('day12/input.txt', 'r') as f:
     orders = f.read().split('\n')
 
-# orders = [
-#     'F10',
-#     'N3',
-#     'F7',
-#     'R90',
-#     'F11'
-# ]
-
 class Ship():
     facing = 0
     x = 0
@@ -85,13 +77,11 @@ class Ship():
         return self.x, self.y
 
     def rotate(self, direction, degrees):
-        # print('Before waypoint: (%d,%d)' % (self.waypointx, self.waypointy))
         for _ in range(degrees // 90):
             if direction == 'L':
                 self.waypointx, self.waypointy = -self.waypointy, self.waypointx
             else:
                 self.waypointx, self.waypointy = self.waypointy, -self.waypointx
-        # print('After waypoint: (%d,%d)' % (self.waypointx, self.waypointy))
 
     def move(self, direction, distance):
         if direction == 'N':
@@ -112,7 +102,6 @@ class Ship():
 newShip = Ship()
 
 for order in orders:
-    # print('Location: (%d,%d)' % newShip.get_location())
     action = order[0]
     args = int(order[1:])
 
