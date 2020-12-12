@@ -1,5 +1,3 @@
-import math
-
 # Load input data
 with open('day12/input.txt', 'r') as f:
     orders = f.read().split('\n')
@@ -8,6 +6,9 @@ class Ship():
     facing = 0
     x = 0
     y = 0
+
+    def __abs__(self):
+        return abs(self.x) + abs(self.y)
 
     def get_direction(self):
         if self.facing == 0:
@@ -19,9 +20,6 @@ class Ship():
         else:
             return 'S'
 
-    def get_location(self):
-        return self.x, self.y
-
     def rotate(self, direction, degrees):
         if direction == 'L':
             self.facing = (self.facing + degrees) % 360
@@ -29,7 +27,9 @@ class Ship():
             self.facing = (self.facing - degrees) % 360
 
     def move(self, direction, distance):
-        if direction == 'N':
+        if direction == 'F':
+            self.move(self.get_direction(), distance)
+        elif direction == 'N':
             self.y = self.y + distance
         elif direction == 'S':
             self.y = self.y - distance
@@ -37,8 +37,6 @@ class Ship():
             self.x = self.x + distance
         elif direction == 'W':
             self.x = self.x - distance
-        else:
-            self.move(self.get_direction(), distance)
 
 
 # Part 1
@@ -52,29 +50,13 @@ for order in orders:
     else:
         myShip.move(action, args)
 
-print(abs(myShip.x) + abs(myShip.y))
+print(abs(myShip))
 
 
 # Part 2
-class Ship():
-    facing = 0
-    x = 0
-    y = 0
+class ShipWithWaypoint(Ship):
     waypointx = 10
     waypointy = 1
-
-    def get_direction(self):
-        if self.facing == 0:
-            return 'E'
-        elif self.facing == 90:
-            return 'N'
-        elif self.facing == 180:
-            return 'W'
-        else:
-            return 'S'
-
-    def get_location(self):
-        return self.x, self.y
 
     def rotate(self, direction, degrees):
         for _ in range(degrees // 90):
@@ -84,7 +66,12 @@ class Ship():
                 self.waypointx, self.waypointy = self.waypointy, -self.waypointx
 
     def move(self, direction, distance):
-        if direction == 'N':
+        if direction == 'F':
+            for _ in range(distance):
+                # Move to the waypoint
+                self.x = self.x + self.waypointx
+                self.y = self.y + self.waypointy
+        elif direction == 'N':
             self.waypointy = self.waypointy + distance
         elif direction == 'S':
             self.waypointy = self.waypointy - distance
@@ -92,14 +79,9 @@ class Ship():
             self.waypointx = self.waypointx + distance
         elif direction == 'W':
             self.waypointx = self.waypointx - distance
-        else:
-            for _ in range(distance):
-                # Move to the waypoint
-                self.x = self.x + self.waypointx
-                self.y = self.y + self.waypointy
 
 
-newShip = Ship()
+newShip = ShipWithWaypoint()
 
 for order in orders:
     action = order[0]
@@ -110,4 +92,4 @@ for order in orders:
     else:
         newShip.move(action, args)
 
-print(abs(newShip.x) + abs(newShip.y))
+print(abs(newShip))
