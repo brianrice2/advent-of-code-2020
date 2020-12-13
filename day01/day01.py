@@ -1,37 +1,34 @@
+from bisect import bisect_left
+
 # Load input data
 nums = []
 with open('day01/input.txt', 'r') as f:
     for line in f:
         nums.append(int(line.strip()))
-
 nums = sorted(nums)
 
-def binary_search(arr, low_index, high_index, num, sum_to): 
-    if high_index >= low_index:
-        mid = (high_index + low_index) // 2
+def index(a, x):
+    """Locate the leftmost value exactly equal to x"""
+    i = bisect_left(a, x)
+    if i != len(a) and a[i] == x:
+        return i
+    return None
 
-        if num + arr[mid] == sum_to:
-            return mid
-        elif num + arr[mid] > sum_to:
-            return binary_search(arr, low_index, mid - 1, num, sum_to) 
-        else:
-            return binary_search(arr, mid + 1, high_index, num, sum_to) 
-    else: 
-        # Element is not present in the array
-        return None
 
 # Part 1
-for i in range(0, len(nums)):
-    complement = binary_search(nums, i + 1, len(nums), nums[i], sum_to=2020)
-    if complement:
-        print(nums[i] * nums[complement])
-        break
+def part_one():
+    for i in range(0, len(nums)):
+        complement_idx = index(nums, 2020 - nums[i])
+        if complement_idx:
+            return nums[i] * nums[complement_idx]
+print(part_one())
 
 
 # Part 2
-for i in range(0, len(nums)):
-    for j in range(i, len(nums)):
-        complement = binary_search(nums, i, len(nums), nums[i] + nums[j], sum_to=2020)
-        if complement:
-            print(nums[i] * nums[j] * nums[complement])
-            break
+def part_two():
+    for i in range(0, len(nums)):
+        for j in range(i + 1, len(nums)):
+            complement_idx = index(nums, 2020 - nums[i] - nums[j])
+            if complement_idx:
+                return nums[i] * nums[j] * nums[complement_idx]
+print(part_two())
