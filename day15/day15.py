@@ -11,7 +11,7 @@ last2turns = defaultdict(lambda: (None, None), indict)
 
 # Perform next turn automatically (always equals 0)
 most_recent = 0
-last2turns[most_recent] = (len(inlist) + 1, indict[most_recent][0]) if 0 in last2turns else (4, None)
+last2turns[most_recent] = (len(inlist) + 1, indict[most_recent][0]) if 0 in last2turns else (len(inlist) + 1, None)
 
 # Perform all turns thereafter
 stop = 30000000  # Use stop = 2020 for Part 1
