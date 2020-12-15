@@ -1,4 +1,4 @@
-from collections import defaultdict, deque
+from collections import defaultdict
 
 inlist = [16,1,0,18,12,14,19]
 
