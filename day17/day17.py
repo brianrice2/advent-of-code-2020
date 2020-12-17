@@ -1,6 +1,6 @@
 import numpy as np
 from copy import deepcopy
-from  math import ceil
+from math import ceil
 
 # Load input data
 with open('day17/input.txt', 'r') as f:
@@ -19,7 +19,6 @@ def print_state(state, label):
 
 def count_active_neighbors(state, x, y, z):
     # Neighbors are within a 1-coordinate range
-    # This could be changed to a convolution filter/sum
     active_count = 0
     for i in range(-1, 2):
         for j in range(-1, 2):
