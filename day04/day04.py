@@ -22,8 +22,7 @@ for passport in passports:
     # Check validity
     valid_passport_count += int(is_valid_dict(passport_dictionary))
 
-print(valid_passport_count)
-
+print('Part 1:', valid_passport_count)
 
 # Part 2
 def is_valid_dict(passport_dictionary):
@@ -79,4 +78,4 @@ for passport in passports:
     # Check validity
     valid_passport_count += int(is_valid_dict(passport_dictionary))
 
-print(valid_passport_count)
+print('Part 2:', valid_passport_count)

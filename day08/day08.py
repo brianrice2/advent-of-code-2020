@@ -19,14 +19,12 @@ def parse_input(instruction):
 def step(instructions, idx, accumulator):
     # Process operation and update accumulator if applicable
     operation, delta = parse_input(instructions[idx])
-    if operation == 'acc':
-        accumulator += delta
-        idx += 1
-    elif operation == 'jmp':
+    if operation == 'jmp':
         idx += delta
     else:
+        if operation == 'acc':
+            accumulator += delta
         idx += 1
-
     return idx, accumulator
 
 def loop(instructions, part_one = False):
@@ -44,10 +42,8 @@ def loop(instructions, part_one = False):
     
     return accumulator
 
-
 # Part 1
-print(loop(instructions, part_one=True))
-
+print('Part 1:', loop(instructions, part_one=True))
 
 # Part 2
 # Swap a single instruction and check if the loop closes
@@ -65,5 +61,5 @@ for swapped_idx in range(num_instructions):
     
     accumulator = loop(instructions_swapped)
     if accumulator:
-        print(accumulator)
+        print('Part 2:', accumulator)
         break

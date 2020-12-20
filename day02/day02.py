@@ -28,8 +28,7 @@ for line in raw_data:
     # Test validity
     valid_password_counter += is_valid_pt1(lower_bound, upper_bound, letter, password)
 
-print(valid_password_counter)
-
+print('Part 1:', valid_password_counter)
 
 # Part 2
 def is_valid_pt2(lower_index, upper_index, letter, password):
@@ -55,4 +54,4 @@ for line in raw_data:
     # Test validity
     valid_password_counter += is_valid_pt2(lower_index, upper_index, letter, password)
 
-print(valid_password_counter)
+print('Part 2:', valid_password_counter)

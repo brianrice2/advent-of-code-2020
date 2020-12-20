@@ -16,7 +16,6 @@ for rule in rules:
     contains = contains.split(',')
     bag_hierarchy[root_bag] = (contains, counts)
 
-
 # Part 1
 def bag_contains(bag_hierarchy, color_check, looking_for):
     if bag_hierarchy[color_check][0] == ['no other']:  # Reached bottom level
@@ -24,12 +23,12 @@ def bag_contains(bag_hierarchy, color_check, looking_for):
     elif color_check == looking_for:
         return True
     else:  # Search through nested bags
-        return any([bag_contains(bag_hierarchy, color, looking_for) for color in bag_hierarchy[color_check][0]])
+        return any([bag_contains(bag_hierarchy, color, looking_for)
+                    for color in bag_hierarchy[color_check][0]])
 
 results = [{color: bag_contains(bag_hierarchy, color, 'shiny gold')}
            for color in bag_hierarchy.keys() if color != 'shiny gold']
-print(sum([color_dict[key] for color_dict in results for key in color_dict.keys()]))
-
+print('Part 1:', sum([color_dict[key] for color_dict in results for key in color_dict.keys()]))
 
 # Part 2
 def count_subbags(bag_hierarchy, color):
@@ -40,4 +39,4 @@ def count_subbags(bag_hierarchy, color):
                    for i in range(len(bag_hierarchy[color][0]))]
         return 1 + sum(subbags)
 
-print(count_subbags(bag_hierarchy, 'shiny gold') - 1)  # -1 to exclude the root shiny gold bag itself
+print('Part 2:', count_subbags(bag_hierarchy, 'shiny gold') - 1)  # -1 to exclude the root shiny gold bag itself

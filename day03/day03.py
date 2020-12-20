@@ -16,13 +16,12 @@ def calc_trees_hit(raw_data, step_size_down, step_size_right):
     
     return trees_counter
 
-
 # Part 1
-print(calc_trees_hit(raw_data, 1, 3))
-
+print('Part 1:', calc_trees_hit(raw_data, 1, 3))
 
 # Part 2
 print(
+    'Part 2:',
     calc_trees_hit(raw_data, 1, 1) *
     calc_trees_hit(raw_data, 1, 3) *
     calc_trees_hit(raw_data, 1, 5) *

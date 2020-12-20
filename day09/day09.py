@@ -20,22 +20,20 @@ def binary_search(arr, low_index, high_index, base_num, sum_to):
         # Element is not present in the array
         return None
 
+def has_counterpart(window, preamble_length, num):
+    for x in range(preamble_length):
+        counterpart = binary_search(window, x + 1, preamble_length - 1, window[x], sum_to=num)
+        if counterpart:
+            return True
+    return False
 
 # Part 1
 for i in range(preamble_length, len(encodings)):
     window = sorted(encodings[i - preamble_length:i])
     current_num = encodings[i]
-
-    has_counterpart = False
-    for x in range(preamble_length):
-        counterpart = binary_search(window, x + 1, preamble_length - 1, window[x], sum_to=current_num)
-        if counterpart:
-            has_counterpart = True
-        if not has_counterpart and x == preamble_length - 1:
-            print(current_num)
-            break
-# > 257342611
-
+    if not has_counterpart(window, preamble_length, current_num):
+        print('Part 1:', current_num)
+        break
 
 # Part 2
 target_sum = 257342611
@@ -53,6 +51,5 @@ for i in range(len(encodings)):
 
     # Check for exit condition
     if contig_sum == target_sum:
-        print(min(contig_nums) + max(contig_nums))
+        print('Part 2:', min(contig_nums) + max(contig_nums))
         break
-# > 35602097
