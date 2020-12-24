@@ -1,6 +1,6 @@
 # Load input data
-with open('day12/input.txt', 'r') as f:
-    orders = f.read().split('\n')
+with open('day12/input.txt', 'r') as file:
+    orders = file.read().split('\n')
 
 class Ship():
     facing = 0

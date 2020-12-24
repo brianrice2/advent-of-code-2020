@@ -1,8 +1,8 @@
 import re
 
 # Load input data
-with open('day04/input.txt', 'r') as f:
-    passports = f.read()
+with open('day04/input.txt', 'r') as file:
+    passports = file.read()
 
 # Split into separate passports using empty line delimiter
 passports = [re.sub('\n', ' ', passport) for passport in passports.split('\n\n')]

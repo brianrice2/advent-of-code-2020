@@ -1,6 +1,6 @@
 # Load input data
-with open('day09/input.txt', 'r') as f:
-    encodings = list(map(int, f.read().split('\n')))
+with open('day09/input.txt', 'r') as file:
+    encodings = list(map(int, file.read().split('\n')))
 
 preamble_length = 25
 

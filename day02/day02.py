@@ -1,6 +1,6 @@
 # Load input data
-with open('day02/input.txt', 'r') as f:
-    raw_data = f.read().splitlines()
+with open('day02/input.txt', 'r') as file:
+    raw_data = file.read().splitlines()
 
 # Part 1
 def is_valid_pt1(lower_bound, upper_bound, letter, password):

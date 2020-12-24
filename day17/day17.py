@@ -3,8 +3,8 @@ from copy import deepcopy
 from math import ceil
 
 # Load input data
-with open('day17/input.txt', 'r') as f:
-    initial_state = f.read().split('\n')
+with open('day17/input.txt', 'r') as file:
+    initial_state = file.read().split('\n')
 
 INITIAL_SIZE = len(initial_state)
 N_CYCLES = 6

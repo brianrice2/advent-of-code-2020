@@ -1,8 +1,8 @@
 import re
 
 # Load input data
-with open('day07/input.txt', 'r') as f:
-    rules = f.read().split('\n')
+with open('day07/input.txt', 'r') as file:
+    rules = file.read().split('\n')
 
 bag_hierarchy = {}
 for rule in rules:

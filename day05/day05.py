@@ -1,6 +1,6 @@
 # Load input data
-with open('day05/input.txt', 'r') as f:
-    partitions = f.read()
+with open('day05/input.txt', 'r') as file:
+    partitions = file.read()
 
 NROWS = 128
 SEATS_PER_ROW = 8

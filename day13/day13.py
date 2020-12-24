@@ -1,8 +1,8 @@
 import numpy as np
 
 # Load input data
-with open('day13/input.txt', 'r') as f:
-    inlist = f.read().split('\n')
+with open('day13/input.txt', 'r') as file:
+    inlist = file.read().split('\n')
 
 start_time = int(inlist[0])
 all_buses = inlist[1].split(',')

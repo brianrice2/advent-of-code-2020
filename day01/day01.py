@@ -1,10 +1,8 @@
 from bisect import bisect_left
 
 # Load input data
-nums = []
-with open('day01/input.txt', 'r') as f:
-    for line in f:
-        nums.append(int(line.strip()))
+with open('day01/input.txt', 'r') as file:
+    nums = list(map(int, file.read().splitlines()))
 nums = sorted(nums)
 
 def index(a, x):

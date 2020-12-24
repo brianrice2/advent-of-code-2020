@@ -1,8 +1,6 @@
 # Load input data
-raw_data = []
-with open('day03/input.txt', 'r') as f:
-    for line in f:
-        raw_data.append(line.strip())
+with open('day03/input.txt', 'r') as file:
+    raw_data = file.read().splitlines()
 
 def calc_trees_hit(raw_data, step_size_down, step_size_right):
     trees_counter = 0

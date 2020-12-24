@@ -3,8 +3,8 @@ from collections import Counter
 from numpy_lru_cache_decorator import np_cache
 
 # Load input data
-with open('day10/input.txt', 'r') as f:
-    adapters = list(map(int, f.read().split('\n')))
+with open('day10/input.txt', 'r') as file:
+    adapters = list(map(int, file.read().split('\n')))
 
 adapters = np.array([0] + sorted(adapters) + [max(adapters) + 3])
 

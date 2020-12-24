@@ -23,8 +23,8 @@ def replace_parentheses(expression, expr_eval_function):
 
 # Process input data
 results = []
-with open('day18/input.txt', 'r') as f:
-    for line in f:
+with open('day18/input.txt', 'r') as file:
+    for line in file:
         results.append(int(replace_parentheses(line, do_math)))
 print('Part 1:', sum(results))
 
@@ -57,7 +57,7 @@ def do_math_pt2(expression):
 
 # Process input data
 results2 = []
-with open('day18/input.txt', 'r') as f:
-    for line in f:
+with open('day18/input.txt', 'r') as file:
+    for line in file:
         results2.append(int(replace_parentheses(line, do_math_pt2)))
 print('Part 2:', sum(results2))

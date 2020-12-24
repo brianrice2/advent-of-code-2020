@@ -2,8 +2,8 @@ import re
 from copy import deepcopy
 
 # Load input data
-with open('day08/input.txt', 'r') as f:
-    instructions = f.read().split('\n')
+with open('day08/input.txt', 'r') as file:
+    instructions = file.read().split('\n')
 num_instructions = len(instructions)
 
 # Helper functions

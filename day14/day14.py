@@ -1,8 +1,8 @@
 from itertools import product
 
 # Load input data
-with open('day14/input.txt', 'r') as f:
-    inlist = f.read().split('\n')
+with open('day14/input.txt', 'r') as file:
+    inlist = file.read().split('\n')
 
 
 # Part 1

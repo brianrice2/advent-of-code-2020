@@ -1,8 +1,8 @@
 from copy import deepcopy
 
 # Load input data
-with open('day11/input.txt', 'r') as f:
-    layouts = f.read().split()
+with open('day11/input.txt', 'r') as file:
+    layouts = file.read().split()
 
 # Helper functions
 def in_bounds(layouts, rownum, colnum):

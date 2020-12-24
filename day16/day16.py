@@ -1,8 +1,8 @@
 import numpy as np
 
 # Load input data
-with open('day16/input.txt', 'r') as f:
-    inlist = f.read().split('\n\n')
+with open('day16/input.txt', 'r') as file:
+    inlist = file.read().split('\n\n')
 
 rules, ticket, nearby = inlist
 rules = rules.strip().split('\n')
